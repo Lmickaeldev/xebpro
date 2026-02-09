@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact - Peintre</title>
+    <style>
+        body {
+            font-family: system-ui;
+            margin: 0;
+            padding: 24px;
+            background: #0b1220;
+            color: #e5e7eb
+        }
+
+        .wrap {
+            max-width: 760px;
+            margin: 0 auto
+        }
+
+        .card {
+            background: #111a2e;
+            border: 1px solid #223055;
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 22px
+        }
+
+        p {
+            margin: 0 0 16px;
+            color: #cbd5e1
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 700
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background: #0b1326;
+            color: #e5e7eb;
+            border: 1px solid #263455;
+            border-radius: 12px;
+            padding: 12px;
+            outline: none
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        button {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 0;
+            cursor: pointer;
+            font-weight: 800;
+            background: #3b82f6;
+            color: #fff
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 14px
+        }
+
+        .ok {
+            color: #34d399
+        }
+
+        .err {
+            color: #f87171
+        }
+
+        /* Honeypot (anti-bot) */
+        .hp {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card">
+            <h1>Me contacter</h1>
+            <p>Demande de devis peinture / rénovation — je réponds rapidement.</p>
+
+            <form id="contactForm">
+                <label>Nom *</label>
+                <input id="name" required placeholder="Votre nom" />
+
+                <label>Email</label>
+                <input id="email" type="email" placeholder="Votre email (optionnel)" />
+
+                <label>Message *</label>
+                <textarea id="message" required
+                    placeholder="Décrivez votre besoin (pièce, surface, délais...)"></textarea>
+
+                <!-- honeypot anti-bot : doit rester vide -->
+                <input class="hp" id="website" autocomplete="off" tabindex="-1" />
+
+                <button type="submit">Envoyer</button>
+                <div id="status" class="status"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // URL du Cloudflare Worker
+        const ENDPOINT = "cv.mickael60000lachevre.workers.dev";
+
+        const form = document.getElementById("contactForm");
+        const statusEl = document.getElementById("status");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            statusEl.className = "status";
+            statusEl.textContent = "Envoi...";
+
+            const payload = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                message: document.getElementById("message").value.trim(),
+                website: document.getElementById("website").value.trim(), // honeypot
+            };
+
+            try {
+                const res = await fetch(ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!res.ok) {
+                    const t = await res.text().catch(() => "");
+                    statusEl.className = "status err";
+                    statusEl.textContent = "Erreur : " + (t || res.status);
+                    return;
+                }
+
+                statusEl.className = "status ok";
+                statusEl.textContent = "✅ Message envoyé !";
+                form.reset();
+            } catch (err) {
+                statusEl.className = "status err";
+                statusEl.textContent = "Erreur réseau.";
+            }
+        });
+    </script>
+</body>
+
+</html>

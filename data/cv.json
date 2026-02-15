@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "name": "Mickaël Lachevre",
+    "job": "Ouvrier peintre",
+    "subtitle": "Intérieur/extérieur • préparation supports • finitions propres • esprit d’équipe",
+    "tags": [
+      "Enduit • ponçage",
+      "Peinture murs/plafonds",
+      "Boiseries",
+      "Protection chantier",
+      "Respect consignes"
+    ],
+    "location": "Beauvais (60)",
+    "availability": "Immédiate",
+    "driving": "Permis B (en projet)",
+    "phone": "06 18 28 85 37",
+    "email": "mickael60000lachevre@gmail.com"
+  },
+  "profile": {
+    "text": "Ouvrier peintre sérieux, motivé, à l’aise sur chantier. J’aime le travail propre, la préparation et les finitions."
+  },
+  "skills": [
+    {
+      "title": "Préparation",
+      "text": "Protection • décapage • rebouchage • enduit • ponçage"
+    },
+    {
+      "title": "Application",
+      "text": "Rouleau • brosse • finitions • retouches"
+    },
+    {
+      "title": "Chantier",
+      "text": "Propreté • sécurité • esprit d’équipe • respect des délais"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Ouvrier peintre — SOS Insertion Emploi",
+      "city": "Beauvais",
+      "date": "2024 — 2025",
+      "bullets": [
+        "Préparation supports (enduit, ponçage) + protection chantier.",
+        "Peinture murs/plafonds, boiseries, finitions propres.",
+        "pose de revêtements sol (lino)",
+        "pose de revêtements muraux (faiences, fibre de verre)",
+        "Respect des consignes/sécurité, travail en binôme/équipe."
+      ]
+    },
+    {
+      "title": "vendeur gondolier — Grand Frais(cdi)",
+      "city": "Beauvais",
+      "date": "2018 — 2019",
+      "bullets": [
+        "mise en rayon de produit, nettoyage de zone, réception de commande."
+      ]
+    },
+    {
+      "title": "Ouvrier peintre — SOS Insertion Emploi",
+      "city": "Beauvais",
+      "date": "2016 — 2017",
+      "bullets": [
+        "plusieurs CDD en tant que peintre "
+      ]
+    }
+  ],
+  "education": [
+
+    {
+      "title": "TB — technique basique",
+      "school": "AFPA de Amiens",
+      "date": "janvier - février 2023",
+      "bullets": ["html,css,javascript,git,github,terminal,notion"]
+    },
+    {
+      "title": "DIW — Développeur Intégrateur Web",
+      "school": "AFPA de Amiens",
+      "date": "février - avril 2023",
+      "bullets": ["bootsrap, sql php"]
+    },
+    {
+      "title": " DA — full stack Développement application",
+      "school": "AFPA de Amiens",
+      "date": "avril - juin 2023",
+      "bullets": ["bootsrap, sql php"]
+    },
+    {
+      "title": "CDA — Concepteur développeur d’application",
+      "school": "AFPA de Amiens",
+      "date": "nov 2024 - juin 2025",
+      "bullets": ["bootsrap, sql php"]
+    }
+    
+
+  ],
+  "strengths": [
+    "Ponctuel, respect des consignes",
+    "Autonome sur tâches simples, bon esprit d’équipe",
+    "Chantier propre et organisé",
+    "Bonne résistance physique"
+  ],
+  "infos": {
+    "mobility": "Permis B / transports",
+    "contract": "CDI / CDD / Intérim",
+    "availability": "Immédiate"
+  },
+
+  "contact": {
+    "discordWorkerEndpoint": "https://cv.mickael60000lachevre.workers.dev"
+  }
+}
